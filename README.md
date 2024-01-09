@@ -54,12 +54,34 @@
   </ul>
 </details>
 
-### 🌸🌷 Key Features <a name="key-features"></a>
-- **[Write blog post]**
-- **[Comment on blog post]**
-- **[Like blog posts]**
-- **[Integration tests]**
-- **[Views]**
+### 🍲📋 Recipe App Key Features <a name="key-features"></a>
+
+- **[User Authentication]**
+  - Implement a secure authentication system with user registration and login functionality.
+
+- **[Recipe Management]**
+  - Enable users to create, view, and delete their recipes, supporting essential CRUD operations.
+
+- **[Public Recipes]**
+  - Allow users to make their recipes public, facilitating sharing. Implement a list of public recipes with names and total prices.
+
+- **[Food List (For Teams of 3)]**
+  - Implement CRUD operations for managing a list of food items, specific to teams with three members.
+
+- **[Shopping List Generation]**
+  - Automatically generate a shopping list based on user recipes, including missing items and their total price.
+
+- **[Inventory Management (For Teams of 3)]**
+  - Implement CRUD operations for managing inventories, enabling users to organize their ingredients.
+
+- **[Food List for Inventory (For Teams of 3)]**
+  - Allow users to manage a list of food items within a specific inventory, supporting CRUD operations.
+
+- **[Inventory Shopping List (For Teams of 3)]**
+  - Generate a shopping list considering a chosen recipe and inventory, streamlining the shopping process.
+
+- **[Responsive Views]**
+  - Design user interfaces that are responsive and user-friendly, ensuring a seamless experience on various devices.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
