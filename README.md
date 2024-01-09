@@ -88,14 +88,12 @@ Clone this repository to your desired folder:
 - 🌷Twitter: [@twitterhandle](https://twitter.com/IvonneBenitesR)
 - 🌷LinkedIn: [LinkedIn](https://www.linkedin.com/in/ivonnebenites/)
   
-  👤 *Gilbert  Dushimimana Happi*
+👤 *Gilbert  Dushimimana Happi*
 
 - Github: [Gilbert Happi Dushimimana](https://github.com/gilberthappi)
 - X: [Gilbert Happi Dushimimana](https://twitter.com/DushimimanaGil3)
 - LinkedIn: [Gilber Happi Dushimimana](https://www.linkedin.com/in/dushimimana-gilbert-happi-997b2a262/)
  
-## 👥 Author <a name="author"></a>
-
 👤 *Md.Rafiduzzaman*
 - GitHub: [@Rafiduzzaman](https://github.com/Rafiduzzaman)
 - Twitter: [@rdzaman](https://twitter.com/rdzaman187468)
