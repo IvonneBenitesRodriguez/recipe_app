@@ -1,13 +1,13 @@
-module visible
-    extend ActiveSupport::Concern
+module Visible
+  extend ActiveSupport::Concern
 
-    VALID_STATUSES = %w[public private].freeze
+  VALID_STATUSES = %w[public private].freeze
 
-included do
+  included do
     validates :status, inclusion: { in: VALID_STATUSES }
-end
+  end
 
-def private?
+  def private?
     status == 'private'
-end
+  end
 end

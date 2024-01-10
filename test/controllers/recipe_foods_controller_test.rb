@@ -5,4 +5,3 @@ class RecipeFoodsControllerTest < ActionDispatch::IntegrationTest
   #   assert true
   # end
 end
-
