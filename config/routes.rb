@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   resources :inventories do
     resources :inventory_foods
   end
-
+  resources :public_recipes, only: %i[index]
 end
 

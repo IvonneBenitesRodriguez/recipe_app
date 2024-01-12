@@ -14,8 +14,13 @@
       <%= form.text_field :name %>
     </div>
     <div>
-      <%= form.label :measurement_unit, style: "display: block" %>
-      <%= form.text_field :measurement_unit %>
+       <%= form.label :measurement_unit, "Measurement unit" %>
+    <%= form.number_field :measurement_unit, class: 'form-control' %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :unit_quantity, "Units" %>
+    <%= form.text_field :unit_quantity, class: 'form-control' %>
     </div>
     <div>
       <%= form.label :price, style: "display: block" %>
