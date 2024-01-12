@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RecipeApp</title>
+    <title>RorProject</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,8 +13,9 @@
   <body>
     <div class="container">
       <br>
+      <%= render 'home/navbar' %>
       <%= render 'shared/alerts' %>
-    <%= yield %>
+      <%= yield %>
     </div>
   </body>
 </html>

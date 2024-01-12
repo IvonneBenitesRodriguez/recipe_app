@@ -14,8 +14,8 @@
 			<% @inventory.inventory_foods.each do |food_recipe| %>
 				<tr>
 					<td><%=food_recipe.food.name %></td>
-					<%=food_recipe.quantity %> <%=food_recipe.quantity_unit %></td>
-				<td>
+					<td><%=food_recipe.quantity %> <%=food_recipe.quantity_unit %></td>
+					<td>
 
       			<%= link_to 'Remove', inventory_inventory_food_path(@inventory, id: food_recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
 					</td>

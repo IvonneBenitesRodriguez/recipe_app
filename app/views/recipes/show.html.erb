@@ -38,7 +38,9 @@
 					</div>
 				</div>
 			</div>
-			<%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe_id: @recipe_id), class: 'btn btn-outline-dark btn-sm' %>
+			<% if can? :new, @recipe %>
+				<%= link_to 'Add ingredient', new_recipe_recipe_food_path(recipe_id: @recipe_id), class: 'btn btn-outline-dark btn-sm' %>
+			<% end %>
 		</div>
 	<% end %>
 	<hr/>
@@ -56,7 +58,7 @@
 			<% @recipe.recipe_foods.each do |food_recipe| %>
 				<tr>
 					<td><%=food_recipe.food.name %></td>
-					<td><%=food_recipe.quantity %></td>
+					<td><%=food_recipe.quantity %> <%=food_recipe.quantity_unit %></td>
 					<td>$<%=food_recipe.quantity * food_recipe.food.price %></td>
 					<td>
 						<%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, id: food_recipe), class: 'me-1' %>

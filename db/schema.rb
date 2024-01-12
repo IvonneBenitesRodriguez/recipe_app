@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_10_045003) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_27_091612) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,12 +18,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_045003) do
     t.string "name"
     t.decimal "measurement_unit"
     t.decimal "price"
+    t.string "unit_quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "inventories", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -32,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_045003) do
 
   create_table "inventory_foods", force: :cascade do |t|
     t.decimal "quantity"
+    t.string "quantity_unit"
     t.bigint "food_id", null: false
     t.bigint "inventory_id", null: false
     t.datetime "created_at", null: false
@@ -42,6 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_045003) do
 
   create_table "recipe_foods", force: :cascade do |t|
     t.decimal "quantity"
+    t.string "quantity_unit"
     t.bigint "recipe_id", null: false
     t.bigint "food_id", null: false
     t.datetime "created_at", null: false
@@ -55,6 +59,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_045003) do
     t.string "preparation_time"
     t.string "cooking_time"
     t.text "description"
+    t.boolean "public"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,6 +72,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_045003) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"

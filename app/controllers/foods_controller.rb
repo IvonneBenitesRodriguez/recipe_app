@@ -34,7 +34,7 @@ class FoodsController < ApplicationController
   def destroy
     @food.destroy
     respond_to do |format|
-      format.html { redirect_to foods_url, notice: 'Food was sucessfully destroyed.' }
+      format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -46,7 +46,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through
+  # Only allow a list of trusted parameters through.
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price, :unit_quantity)
   end
