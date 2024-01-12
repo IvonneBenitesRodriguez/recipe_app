@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @recipes = Recipe.all
   end
@@ -17,12 +19,13 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to recipe_path(@recipe), notice: 'Recipe created succesfully!' }
         format.json { render :show, status: :created, location: @recipe }
       else
-        format.html { redirect_to new_recipe_path, alert: 'Recipe not created!' }
+        format.html { render :new, alert: 'Recipe not created!' }
         format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
@@ -41,6 +44,7 @@ class RecipesController < ApplicationController
   def shopping_list
     @recipe_id = params[:recipe_id]
     @inventory_id = params[:inventory_id]
+
     @recipe = Recipe.includes(recipe_foods: :food).find(@recipe_id)
     @inventory = Inventory.find(@inventory_id)
 
