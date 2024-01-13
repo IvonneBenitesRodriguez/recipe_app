@@ -1,5 +1,5 @@
 // Import libraries
-@import '@fortawesome/fontawesome-free/css/all';
+@import 'font-awesome';
 @import 'pages/p-foods';
 
 // Import variables and mixins
@@ -8,13 +8,6 @@
 
 // Import reset and base styles
 @import 'base/base';
-
-// Import components styles
-// ... (rest of your imports)
-
-// Import pages styles
-// ... (rest of your imports)
-
 
 // Import components styles
 @import 'components/c-header';
