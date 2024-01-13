@@ -1,56 +1,56 @@
 class InventoriesController < ApplicationController
-  load_and_authorize_resource
+  before_action :set_inventory, only: %i[show edit update destroy]
 
+  # GET /inventories or /inventories.json
   def index
-    @inventories = Inventory.all
+    @inventories = Inventory.where(user: current_user).includes(:user)
   end
 
+  # GET /inventories/1 or /inventories/1.json
   def show
-    @inventory = Inventory.includes(inventory_foods: :food).find(params[:id])
-    @inventory_id = @inventory.id
-    @inventories = Inventory.all
-
-    render :show
+    @inventory = Inventory.includes(:user).find(params[:id])
+    @inventory_food = @inventory.inventory_foods.includes(:food)
   end
 
+  # GET /inventories/new
   def new
     @inventory = Inventory.new
   end
 
+  # GET /inventories/1/edit
+  def edit; end
+
+  # POST /inventories or /inventories.json
   def create
-    @inventory = Inventory.new(inventory_params)
+    @inventory = Inventory.new(params.require(:inventory).permit(:name, :description))
+    @inventory.user = current_user
+    if @inventory.save
+      # format.html { redirect_to inventory_url(@inventory), notice: "Inventory was successfully created." }
+      flash[:success] = 'New inventory has been created !!'
+      redirect_to inventory_url(@inventory)
+    else
+      format.html { render :new, status: :unprocessable_entity }
+    end
+  end
+
+  # DELETE /inventories/1 or /inventories/1.json
+  def destroy
+    @inventory.destroy
 
     respond_to do |format|
-      if @inventory.save
-        format.html { redirect_to inventory_path(@inventory), notice: 'Inventory created succesfully!' }
-        format.json { render :show, status: :created, location: @inventory }
-      else
-        format.html { redirect_to new_inventory_path, alert: 'Inventory not created!' }
-        format.json { render json: @inventory.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to inventories_url, notice: 'Inventory was successfully destroyed.' }
     end
-  end
-
-  def destroy
-    @inventory = Inventory.find(params[:id])
-    if @inventory.destroy
-      flash[:notice] = 'Inventory deleted successfully!'
-    else
-      flash[:alert] = 'Inventory not deleted!'
-    end
-    redirect_to inventories_path
-  end
-
-  def shopping_list
-    recipe_id = params[:recipe_id]
-    params[:inventory_id]
-
-    @inventory = recipe_id
   end
 
   private
 
+  # Use callbacks to share common setup or constraints between actions.
+  def set_inventory
+    @inventory = Inventory.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
   def inventory_params
-    params.require(:inventory).permit(:name, :cooking_time, :preparation_time, :description, :status, :user_id)
+    params.fetch(:inventory, {})
   end
 end
