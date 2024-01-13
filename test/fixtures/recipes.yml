@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  preparation_time: 2023-06-27 12:14:56
-  cooking_time: 2023-06-27 12:14:56
+  preparation_time: 1
+  cooking_time: 1
   description: MyText
-  users: one
+  public: false
 
 two:
   name: MyString
-  preparation_time: 2023-06-27 12:14:56
-  cooking_time: 2023-06-27 12:14:56
+  preparation_time: 1
+  cooking_time: 1
   description: MyText
-  users: two
+  public: false
