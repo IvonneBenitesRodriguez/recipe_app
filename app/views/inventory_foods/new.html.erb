@@ -1,20 +1,15 @@
-<%= form_with model: @inventory_food, url: inventory_inventory_foods_path(@inventory) do |f| %>
-  <div>
-    <%= f.label :food_id, "Food" %>
-    <%= f.collection_select :food_id, @foods, :id, :name, prompt: "Select a food", class: 'form-control' %>
-  </div>
-  <br>
-  <div>
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity, autofocus: true, autocomplete: "quantity", class: 'form-control' %>
-  </div>
-  <br>
-  <div>
-    <%= f.label :quantity_unit, "Quantity unit" %>
-    <%= f.text_field :quantity_unit, autofocus: true, autocomplete: "quantity_unit", class: 'form-control' %>
-  </div>
-  <br>
-  <div>
-    <%= f.submit "Add Food", class: 'btn btn-outline-dark btn-sm' %>
-  </div>
-<% end %>
+<div class="main">
+<div class="container add-inventory-food w-full p-4 b-2">
+    <%= form_with model: @inventory_food, url: "/inventory_foods/#{@inventory.id}/create",  local: true, data: {turbo:false} do |m| %>
+        <h2 class="text mb-4">Add food to inventory</h2>
+        <div class="add-food-form">
+          <%= m.select :food_list, Food.order(:name).pluck(:name, :id), {}, {:multiple => true, required:true, class: "form-select mb-3"} %>
+          <div class="input-group">
+          <%= m.label :quantity, class: "form-label input-label" %>
+          <%= m.number_field :quantity, class: "form__field" %>
+          </div>
+        </div>
+        <%= m.submit 'Add food', class: "btn btn--primary btn--inside uppercase" %>
+    <% end %>
+</div>
+</div>
