@@ -1,37 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<h2><%= @inventory.name%></h2>
+<%= link_to 'Add Food', new_inventory_inventory_food_path(inventory_id: @inventory_id), class: 'btn btn-outline-dark btn-sm' %>
+<hr>
+<table class="table table-striped table-bordered">
+		<% if @inventory.inventory_foods.any? %>
+			<thead>
+				<tr>
+					<th scope="col">Food</th>
+					<th scope="col">Quantity</th>
+					<th scope="col">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+			<% @inventory.inventory_foods.each do |food_recipe| %>
+				<tr>
+					<td><%=food_recipe.food.name %></td>
+					<td><%=food_recipe.quantity %> <%=food_recipe.quantity_unit %></td>
+					<td>
 
-<section class = 'd-flex flex-column mb-2 align-items-center'>
-<div class="section-title inventory_foods">
-  <h1>
-    <%= @inventory.name %>
-  </h1>
-    <%= link_to icon('fa-solid', 'plus'), "/inventory_foods/#{@inventory.id}/new", method: :post, class:'btn btn-add'%>
-  </div>
-
-  <div class='table'id="table-container">
-    <table class = 'mb-2 align-items-center'>
-    <tbody>
-      <tr>
-        <th>Food</th>
-        <th>Quantity</th>
-        <th>Actions</th>
-      </tr>
-        <% if @inventory_food.length > 0 %>
-          <% @inventory_food.each do |f| %>
-            <tr>
-              <td><%= f.food.name %></td>
-              <td><%= f.quantity %> <%= f.food.measurement_unit %></td>
-              <td><%= link_to icon('fa-solid', 'trash-can'), inventory_inventory_food_path(@inventory.id,f.id), data: { "turbo-method": :delete }, class: "btn btn-outline-danger" %></td>
-            </tr>
-          <% end %>
-        <% else %>
-          <tr>
-            <td></td>
-            <td>No food for this inventory</td>
-            <td></td>
-          </tr>          
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</section>
+      			<%= link_to 'Remove', inventory_inventory_food_path(@inventory, id: food_recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
+					</td>
+				</tr>
+			<% end %>
+			</tbody>
+		<% end %>
+	</table>

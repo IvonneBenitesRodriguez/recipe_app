@@ -1,18 +1,9 @@
-<section class="p-recipes">
-  <header class="p-recipes__header c-card">
-    <h1 class="c-section-title"><%= pluralize(@recipes.length, 'Recipe') %></h1>
-    <%= link_to "new recipe", new_recipe_path, class: "c-btn" %>
-  </header>
+<section class="my-3 p-3">
+	<% @recipes.each do |recipe| %>
+		<% if recipe.public? %>
+			<%= render 'recipe', recipe: recipe %>
+		<% end %>
+	<% end %>
 
-  <% if @recipes.empty? %>
-    <p>
-      You don't have any recipes yet. Create one!
-    </p>
-  <% else %>
-    <div class="c-recipes-grid" id="recipes">
-      <% @recipes.each do |recipe| %>
-        <%= render recipe %>
-      <% end %>
-    </div>
-  <% end %>
+	<%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-outline-dark btn-sm' %>
 </section>

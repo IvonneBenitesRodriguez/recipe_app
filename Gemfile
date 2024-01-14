@@ -1,10 +1,22 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.4'
+ruby '3.3.0'
+
+gem 'cancancan'
+
+gem 'bullet'
+
+gem 'bootstrap'
+
+gem 'jquery-rails'
+
+gem 'faker'
+
+gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.0.4'
+gem 'rails', '~> 7.0.5'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
@@ -37,14 +49,10 @@ gem 'jbuilder'
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
-
-gem 'aws-sdk-s3', require: false
-
-gem 'bootstrap', '~> 5.0.2'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -54,10 +62,10 @@ gem 'bootstrap', '~> 5.0.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rails-controller-testing'
-  gem 'rspec-rails', '>= 3.9.0'
+  gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -78,14 +86,4 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'devise', '~> 4.8'
-
-gem 'sass-rails', '~> 6.0'
-
-gem 'cancancan', '~> 3.4'
-
-gem 'font-awesome-sass', '~> 6.2.0'
-
-gem 'requestjs-rails', '~> 0.0.9'
-
-gem 'rubocop', require: false
+gem 'devise', '~> 4.9'

@@ -10,12 +10,7 @@
           "apply",
           "variants",
           "responsive",
-          "screen",
-          "if",      
-          "else",
-          "error",
-          "mixin",
-          "include"
+          "screen"
         ]
       }
     ],
@@ -27,12 +22,7 @@
           "apply",
           "variants",
           "responsive",
-          "screen",
-          "if",
-          "else",
-          "error",
-          "mixin",
-          "include"
+          "screen"
         ]
       }
     ],
